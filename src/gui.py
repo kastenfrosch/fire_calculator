@@ -64,12 +64,12 @@ class Gui(QMainWindow):
         self.label_swr.move(50, 400)
 
         self.btn_calculate = QtWidgets.QPushButton(self)
-        self.btn_calculate.setText("calculate!")
+        self.btn_calculate.setText("calculate")
         self.btn_calculate.move(250, 450)
         self.btn_calculate.clicked.connect(self.button_clicked)
 
     def button_clicked(self):
-        print("clicked")
+        print("calculate button clicked")
         calc.calculate_remaining(self)
 
 
