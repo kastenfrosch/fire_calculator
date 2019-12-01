@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
-from src import calc
+from src import calc, charting
 
 
 class Gui(QMainWindow):
@@ -19,7 +19,6 @@ class Gui(QMainWindow):
         self.label_netto_inc.setText("Dein Netto-Einkommen:")
         self.label_netto_inc.adjustSize()
         self.label_netto_inc.move(50, 100)
-
 
         self.input_yrly_spending = QtWidgets.QLineEdit(self)
         self.input_yrly_spending.move(250, 150)
@@ -66,11 +65,20 @@ class Gui(QMainWindow):
         self.btn_calculate = QtWidgets.QPushButton(self)
         self.btn_calculate.setText("calculate")
         self.btn_calculate.move(250, 450)
-        self.btn_calculate.clicked.connect(self.button_clicked)
+        self.btn_calculate.clicked.connect(self.calculate_button_clicked)
 
-    def button_clicked(self):
+        self.btn_export_csv = QtWidgets.QPushButton(self)
+        self.btn_export_csv.setText("export csv")
+        self.btn_export_csv.move(400, 450)
+        self.btn_export_csv.clicked.connect(self.export_csv_button_clicked)
+
+    def calculate_button_clicked(self):
         print("calculate button clicked")
-        calc.calculate_remaining(self)
+        calculations = calc.calculate_remaining(self)
+        charting.create_chart_interactive(calculations)
+
+    def export_csv_button_clicked(self):
+        print("export csv button clicked")
 
 
 def window():
