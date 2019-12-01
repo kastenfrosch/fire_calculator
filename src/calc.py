@@ -32,11 +32,26 @@ def calculate_remaining(gui):
         swr = float(gui.input_swr.text())
 
     print("income: {}".format(income))
+    print("spendings: {}".format(spendings))
     print("savings: {}".format(savings))
     print("savings rate: {:.2%}".format(savings_rate))
     print("current net worth: {}".format(cur_net_worth))
     print("interest rate: {:.2%}".format(interest_rate))
     print("swr: {:.2%}".format(swr))
+
+    calculate_fire(savings=savings,
+                   spendings=spendings,
+                   cur_net_worth=cur_net_worth,
+                   interest_rate=interest_rate,
+                   swr=swr)
+
+
+def calculate_fire(savings, spendings, cur_net_worth, interest_rate, swr):
+
+    while cur_net_worth/swr < spendings:
+        # calculate...
+        pass
+
 
 
 
