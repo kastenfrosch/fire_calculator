@@ -69,7 +69,10 @@ def calculate_fire(savings, spendings, cur_net_worth, interest_rate, swr):
 
     while (cur_net_worth*swr) < spendings:
         # calculate...
-        if year is not 0:
+        if year is 0:
+            # adding current net worth to first year of saving (b/c it will generate interests)
+            savings_without_interests += cur_net_worth
+        else:
             # adding savings of previous to current net worth
             cur_net_worth += savings
             savings_without_interests += savings
