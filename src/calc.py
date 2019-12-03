@@ -80,7 +80,7 @@ def calculate_fire(savings, spendings, cur_net_worth, interest_rate, swr):
         # adding interests to current net worth
         cur_net_worth += interests
 
-        # saving year and net worth into list
+        # saving everything into list
         date = datetime.date(cur_year, 1, 1)
         net_worth_over_time.append((date,
                                     round(cur_net_worth, 2),
